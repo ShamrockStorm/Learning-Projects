@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SecondActivity2">
+
+    <Button
+        android:id="@+id/bBack2"
+        android:layout_width="114dp"
+        android:layout_height="104dp"
+        android:layout_weight="1"
+        android:text="Back" />
+
+    <TextView
+        android:id="@+id/tName2"
+        android:layout_width="163dp"
+        android:layout_height="98dp"
+        android:text="@string/name"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="80dp" />
+
+    <TextView
+        android:id="@+id/tMail"
+        android:layout_width="145dp"
+        android:layout_height="97dp"
+        android:text="Someone.Something@example.com"
+        app:layout_constraintTop_toBottomOf="@+id/tName2" />
+
+</LinearLayout>

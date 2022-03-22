@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="5dip" >
+    <ImageView
+        android:id="@+id/UniversityIcon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/placeholder"
+        android:layout_marginVertical="20dp"
+        android:layout_marginLeft="20dp"
+        />
+    <TextView
+        android:id="@+id/UniversityName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="Sample text"
+        android:textSize="20dp"
+        android:layout_marginLeft="140dp"/>
+    <TextView
+        android:id="@+id/FacultyName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/UniversityName"
+        android:layout_marginTop="7dp"
+        android:textColor="#343434"
+        android:layout_marginLeft="140dp"
+        android:text="Sample Text"
+        android:textSize="14dp" />
+    <TextView
+        android:id="@+id/UniversityCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/FacultyName"
+        android:layout_alignParentRight="true"
+        android:textColor="#343434"
+        android:layout_marginLeft="140dp"
+        android:text="Sample Text"
+        android:textSize="14dp" />
+</RelativeLayout>

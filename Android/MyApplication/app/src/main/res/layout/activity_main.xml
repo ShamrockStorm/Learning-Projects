@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/bPhone"
+        android:layout_width="204dp"
+        android:layout_height="85dp"
+        android:text="Nr de Telefon"
+        app:layout_constraintBottom_toTopOf="@+id/bMail"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.611"
+        tools:layout_editor_absoluteX="103dp" />
+
+    <Button
+        android:id="@+id/bMail"
+        android:layout_width="215dp"
+        android:layout_height="89dp"
+        android:layout_marginBottom="228dp"
+        android:text="Adresa de E-mail"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="102dp" />
+
+</LinearLayout>
