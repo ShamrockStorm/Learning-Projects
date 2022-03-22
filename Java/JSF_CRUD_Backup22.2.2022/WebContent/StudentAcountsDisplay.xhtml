@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+    <title>Display Student Acounts</title>
+</head>
+    
+<body>
+    <h3>List students</h3>
+    <h:form 
+    style = " margin-top: 20%; margin-bottom: 20%; margin-left: 25%; margin-right: 25%; border-style: solid; background-color: powderblue; width: 50%; "
+    rendered="#{not empty studentAcountBean.list}">
+        <h:dataTable value="#{studentAcountBean.list}" var="item" border = "2" style = "width : 100%;">
+            <h:column><f:facet name="header">ID</f:facet>#{item.id}</h:column>
+            <h:column><f:facet name="header">First Name</f:facet>#{item.firstName}</h:column>
+			<h:column><f:facet name="header">Last Name</f:facet>#{item.lastName}</h:column>
+			<h:column><f:facet name="header">email</f:facet>#{item.email}</h:column>
+			<h:column><f:facet name="header">Hash Salt</f:facet>#{item.hashSalt}</h:column>
+			<h:column><f:facet name="header">Hashed Password</f:facet>#{item.hashedPassword}</h:column>
+			
+            
+        </h:dataTable>
+    </h:form>
+</body>
+</html>

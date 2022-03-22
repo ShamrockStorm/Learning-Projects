@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+  <title>Student Registration Form</title>
+</h:head>
+
+<h:body>
+
+	The Student is confirmed: #{student2.firstName} #{student2.lastName} from #{student2.country}
+	<br/> <br/>
+	The Student's favourite programing language is #{student2.favouriteLanguage}
+	<br/> <br/>
+	The student's known programming languages are:
+	<ul>
+		<ui:repeat value="#{student2.knownProgrammingLanguages}" var = "tempLanguage">
+			<li> #{tempLanguage} </li>
+		</ui:repeat>
+	</ul>
+
+</h:body>
+
+</html>

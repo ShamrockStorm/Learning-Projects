@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+    <title>Simple CRUD</title>
+</head>
+    
+<body>
+    <h3>List students</h3>
+    <h:form rendered="#{not empty studentBean.list}">
+        <h:dataTable value="#{studentBean.list}" var="item">
+            <h:column><f:facet name="header">ID</f:facet>#{item.id}</h:column>
+            <h:column><f:facet name="header">First Name</f:facet>#{item.firstName}</h:column>
+			<h:column><f:facet name="header">Last Name</f:facet>#{item.lastName}</h:column>
+			<h:column><f:facet name="header">email</f:facet>#{item.email}</h:column>
+			
+            <h:column>
+                <h:commandButton value="edit" action="#{studentBean.editStudent(item)}" />
+            </h:column>
+            <h:column>
+                <h:commandButton value="delete" action="#{studentBean.delete(item)}" />
+            </h:column>
+            
+        </h:dataTable>
+    </h:form>
+    
+    <h:panelGroup rendered="#{empty studentBean.list}">
+        <p>No students! Please add students.</p>
+    </h:panelGroup>
+    
+    <h:panelGroup rendered="#{!studentBean.edit}">
+        <h3>Add student</h3>
+        <h:form>
+            <p>First Name: <h:inputText value="#{studentBean.item.firstName}" /></p>
+			<p>Last Name: <h:inputText value="#{studentBean.item.lastName}" /></p>
+			<p>email: <h:inputText value="#{studentBean.item.email}" /></p>
+            <p>
+                <h:commandButton value="add" action="#{studentBean.add}" />
+                <h:commandButton value="reset" action="#{studentBean.resetAdd}" />
+            </p>
+        </h:form>
+    </h:panelGroup>
+    --
+    <h:panelGroup rendered="#{studentBean.edit}">
+        <h3>Edit student #{studentBean.item.id}</h3>
+        <h:form>
+            <p>First Name: <h:inputText value="#{studentBean.item.firstName}" /></p>
+			<p>Last Name: <h:inputText value="#{studentBean.item.lastName}" /></p>
+			<p>email: <h:inputText value="#{studentBean.item.email}" /></p>
+            <p>
+                <h:commandButton value="save" action="#{studentBean.saveEdit}" />
+                <h:commandButton value="cancel" action="#{studentBean.cancelEdit}" />
+            </p>
+        </h:form>
+    </h:panelGroup>
+    --
+    <p>
+        <a href="#{appUrlStore.baseUrl}">Go back to index</a>
+    </p>
+</body>
+</html>

@@ -1,0 +1,10 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    url: jdbc:sqlserver://127.0.0.1:1433;databaseName=dbLicence;encrypt=true;trustServerCertificate=true;
+    username: AndroidApp
+    password: AndroidTest
+  jpa.properties.hibernate.dialect: org.hibernate.dialect.SQLServer2012Dialect
+
+

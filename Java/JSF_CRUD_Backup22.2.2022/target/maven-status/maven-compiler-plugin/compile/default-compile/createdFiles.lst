@@ -1,0 +1,8 @@
+com\crudJsf\persistance\HibernateUtil.class
+com\crudJsf\persistance\StudentEntity.class
+com\crudJsf\example\FreshsafeCrudBean.class
+com\crudJsf\example\SimpleCrudBean.class
+com\crudJsf\example\StudentManagerBean.class
+com\crudJsf\util\CommonUtils.class
+com\crudJsf\example\Student.class
+com\crudJsf\persistance\PersistanceCrud.class

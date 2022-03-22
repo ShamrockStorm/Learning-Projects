@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+  <title>SignUp</title>
+</head>
+
+	<body>
+		<h:panelGrid style = " margin-top: 20%; margin-bottom: 20%; margin-left: 30%; margin-right: 30%; border-style: solid; background-color: powderblue; width: 40%">			
+			<h:form>
+				<table style = " margin-top: 10%; margin-bottom: 5%; width: 80%; margin-left:10%; margin-right:10%;">
+					<tr style = " margin-top: 20px; margin-bottom: 20px;">
+						<td style = "width: 30%; text-align: left;">First Name: </td ><td style = "width: 70%;"><h:inputText value="#{logInBean.enteredStudentAcount.firstName}" style = "width: 100%;"/></td>
+					</tr>
+					<tr style = " margin-top: 20px; margin-bottom: 20px;">
+						<td style = "width: 30%; text-align: left;">Last Name: </td ><td style = "width: 70%;"><h:inputText value="#{logInBean.enteredStudentAcount.lastName}" style = "width: 100%;"/></td>
+					</tr>
+					<tr style = " margin-top: 20px; margin-bottom: 20px;">
+						<td style = "width: 30%; text-align: left;">E-Mail: </td ><td style = "width: 70%;"><h:inputText value="#{logInBean.enteredStudentAcount.email}" style = "width: 100%;"/></td>
+					</tr>
+					<tr style = " margin-top: 20px; margin-bottom: 20px;">
+						<td style = "width: 30%; text-align: left;">Password : </td><td style = "width: 70%;"><h:inputSecret value="#{logInBean.tempPass1}" style = "width: 100%;"/></td>
+					</tr>
+					<tr style = " margin-top: 20px; margin-bottom: 20px;">
+						<td style = "width: 30%; text-align: left;">Repeat Password : </td><td style = "width: 70%;"><h:inputSecret value="#{logInBean.tempPass2}" style = "width: 100%;"/></td>
+					</tr>
+				</table>
+				<table style = " margin-top: 5%; margin-bottom: 10%;  width: 100%;">
+					<tr style = " margin-top: 20px; margin-bottom: 20px; width: 100%; text-align: center;">
+						<td><h:commandButton style = "width: 80%;" value="Create Account" action="#{logInBean.signUp}"/></td>
+					</tr>
+				</table>
+			</h:form>			
+		</h:panelGrid>
+	</body>
+
+</html>

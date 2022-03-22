@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Discussion Page</title>
+	<link type="text/css" rel="stylesheet" href="Style.css">
+
+	<script type="text/javascript" src="Scripts/Comments.json"></script>
+	<script type="text/javascript" src="Scripts/Main.js"></script>
+
+</head>
+
+<body onload="LoadComments();">
+	<div class="header">
+		<a href="Home_Page.html"><img src="Pictures/Title_Static_Sticker.png" alt = ""></a>
+		<h1> Discussion Page </h1>
+	</div>
+	<div class="content">
+		<form action="#" class="WriteComment">
+			<table class="WriteComment">
+				<tr>
+					<th colspan=2>
+						<p style="color:white"> New Comment </p>
+					</th>
+				</tr>
+				<tr>
+					<td><label>User Name:</label></td>
+					<td><input type="text" name="tName" value="" id="tName"></td>
+				</tr>
+				<tr>
+					<td><label>E-Mail:</label></td>
+					<td><input type="email" name="tMail" value=""></td>
+				</tr>
+				<tr>
+					<td><label>Password:</label></td>
+					<td><input type="password" name="tPass" value=""></td>
+				</tr>
+				<tr>
+					<td><label for="sGenerations"> Select Generation:</label></td>
+					<td>
+						<select id="sGenerations" onmousedown="this.value='';"
+							onchange="Generation_To_Consoles(this.value);">
+							<option value='1'> Generation 1 </option>
+							<option value='2'> Generation 2 </option>
+							<option value='3'> Generation 3 </option>
+							<option value='4'> Generation 4 </option>
+							<option value='5'> Generation 5 </option>
+							<option value='6'> Generation 6 </option>
+							<option value='7'> Generation 7 </option>
+							<option value='8'> Generation 8 </option>
+							<option value='9'> Generation 9 </option>
+							<option value='0'> Other </option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><label>Select platforms of interest:</label></td>
+					<td>
+						<div id="Gen1D">
+							<input type="checkbox" id="cMO" class="Gen1">
+							<label for="cMO" class="Gen1">Magnavox Odyssey</label>
+						</div>
+
+						<div id="Gen2D">
+							<input type="checkbox" id="cA2600" class="Gen2">
+							<label for="cA2600" class="Gen2">Atari 2600</label>
+							<input type="checkbox" id="cMO2" class="Gen2">
+							<label for="cMO2" class="Gen2">Magnavox Odyssey 2</label>
+							<input type="checkbox" id="cGW" class="Gen2">
+							<label for="cGW" class="Gen2">Game & Watch</label>
+							<input type="checkbox" id="cA5200" class="Gen2">
+							<label for="cA5200" class="Gen2">Atari 5200</label>
+						</div>
+
+						<div id="Gen3D">
+							<input type="checkbox" id="cNES" class="Gen3">
+							<label for="cNES" class="Gen3">NES/Famicon</label>
+							<input type="checkbox" id="cSG1000" class="Gen3">
+							<label for="cSG1000" class="Gen3">Sega SG-1000</label>
+							<input type="checkbox" id="cSMS" class="Gen3">
+							<label for="cSMS" class="Gen3">Sega Master System</label>
+							<input type="checkbox" id="cFDS" class="Gen3">
+							<label for="cFDS" class="Gen3">Famicom Disk System</label>
+							<input type="checkbox" id="cA7800" class="Gen3">
+							<label for="cA7800" class="Gen3">Atari 7800</label>
+						</div>
+
+						<div id="Gen4D">
+							<input type="checkbox" id="cPCE" class="Gen4">
+							<label for="cPCE" class="Gen4">PC Engine/ Turbografx16</label>
+							<input type="checkbox" id="cSG" class="Gen4">
+							<label for="cSG" class="Gen4">Sega Genesis/ Mega Drive</label>
+							<input type="checkbox" id="cGB" class="Gen4">
+							<label for="cGB" class="Gen4">GameBoy</label>
+							<input type="checkbox" id="cALX" class="Gen4">
+							<label for="cALX" class="Gen4">Atari Lynx</label>
+							<input type="checkbox" id="cSNES" class="Gen4">
+							<label for="cSNES" class="Gen4">Super Nintendo</label>
+							<input type="checkbox" id="cSGG" class="Gen4">
+							<label for="cSGG" class="Gen4">Game Gear</label>
+						</div>
+
+						<div id="Gen5D">
+							<input type="checkbox" id="cPS1" class="Gen5">
+							<label for="cPS1" class="Gen5">PlayStation</label>
+							<input type="checkbox" id="cN64" class="Gen5">
+							<label for="cN64" class="Gen5">Nintendo 64</label>
+							<input type="checkbox" id="cBW" class="Gen5">
+							<label for="cBW" class="Gen5">Bandai Wanderswan</label>
+						</div>
+
+						<div id="Gen6D">
+							<input type="checkbox" id="cSDr" class="Gen6">
+							<label for="cSDr" class="Gen6">Sega Dreamcast</label>
+							<input type="checkbox" id="cPS2" class="Gen6">
+							<label for="cPS2" class="Gen6">PlayStation 2</label>
+							<input type="checkbox" id="cGCN" class="Gen6">
+							<label for="cGCN" class="Gen6">GameCube</label>
+							<input type="checkbox" id="cX" class="Gen6">
+							<label for="cX" class="Gen6">XBox</label>
+							<input type="checkbox" id="cGBA" class="Gen6">
+							<label for="cGBA" class="Gen6">GameBoy Advance</label>
+							<input type="checkbox" id="cPCS" class="Gen6">
+							<label for="cPCS" class="Gen6">Steam</label>
+							<input type="checkbox" id="cNDS" class="Gen6">
+							<label for="cNDS" class="Gen6">Nintendo DS</label>
+							<input type="checkbox" id="cPSP" class="Gen6">
+							<label for="cPSP" class="Gen6">PlayStation Portable</label>
+						</div>
+
+						<div id="Gen7D">
+							<input type="checkbox" id="cX360" class="Gen7">
+							<label for="cX360" class="Gen7">XBox 360</label>
+							<input type="checkbox" id="cPS3" class="Gen7">
+							<label for="cPS3" class="Gen7">PlayStation 3</label>
+							<input type="checkbox" id="cWii" class="Gen7">
+							<label for="cWii" class="Gen7">Nintendo Wii</label>
+						</div>
+
+						<div id="Gen8D">
+							<input type="checkbox" id="c3DS" class="Gen8">
+							<label for="c3DS" class="Gen8">Nintendo 3DS</label>
+							<input type="checkbox" id="cPSV" class="Gen8">
+							<label for="cPSV" class="Gen8">PlayStation Vita</label>
+							<input type="checkbox" id="cWiiU" class="Gen8">
+							<label for="cWiiU" class="Gen8">Nintendo WiiU</label>
+							<input type="checkbox" id="cPS4" class="Gen8">
+							<label for="cPS4" class="Gen8">Playstation 4</label>
+							<input type="checkbox" id="cXOne" class="Gen8">
+							<label for="cXOne" class="Gen8">XBox One</label>
+							<input type="checkbox" id="cNS" class="Gen8">
+							<label for="cNS" class="Gen8">Nintendo Switch</label>
+						</div>
+
+						<div id="Gen9D">
+							<input type="checkbox" id="cXS" class="Gen9">
+							<label for="cXS" class="Gen9">XBox Series S/X</label>
+							<input type="checkbox" id="cPS5" class="Gen9">
+							<label for="cPS5" class="Gen9">PlayStation 5</label>
+						</div>
+
+						<div id="Gen0D">
+							<label for="cOther" class="Gen0">Platforms:</label>
+							<input type="text" id="cOther" class="Gen0">
+						</div>
+
+					</td>
+				</tr>
+				<tr>
+					<td><label for="tCom">Comment:</label></td>
+					<td><textarea id="tCom" name="tCom" rows="10" cols="50"></textarea></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" id="bSub" onclick="SubmitComment();"></td>
+				</tr>
+			</table>
+			<br>
+		</form>
+		<div class="CommentCase" id="CommentCase">
+			<br>
+		</div>
+	</div>
+	<div class="navigation">
+		<ul>
+			<li><a href="Home_Page.html">Home Page</a></li>
+			<li><a href="Generation0.html">The Arcade</a></li>
+			<li><a href="Generation1.html">Generation 1</a></li>
+			<li><a href="Generation2.html">Generation 2</a></li>
+			<li><a href="Generation3.html">Generation 3</a></li>
+			<li><a href="Generation4.html">Generation 4</a></li>
+			<li><a href="Generation5.html">Generation 5</a></li>
+			<li><a href="Generation6.html">Generation 6</a></li>
+			<li><a href="Generation7.html">Generation 7</a></li>
+			<li><a href="Generation8.html">Generation 8</a></li>
+			<li><a href="Generation9.html">Generation 9</a></li>
+			<li><a href="Coment_section.html">Discussion page</a></li>
+		</ul>
+	</div>
+	<div class="footer">
+		<h3 class="developers"> Daniel Blaga <br> Kevin Zheng </h3>
+		<h3 class="project"> Project for the University of Ruse<br> Coordinating professor: Assoc. Prof. Georgi Georgiev
+		</h3>
+
+	</div>
+</body>
+
+</html>

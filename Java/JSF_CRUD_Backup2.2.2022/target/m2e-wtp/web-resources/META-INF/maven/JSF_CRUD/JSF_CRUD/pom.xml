@@ -1,0 +1,113 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>JSF_CRUD</groupId>
+  <artifactId>JSF_CRUD</artifactId>
+  <version>0.0.2-SNAPSHOT</version>
+  <packaging>war</packaging>
+  
+  <properties>
+  		<tomcat.version>9.0.35</tomcat.version>
+  		<jsf.version>2.2.8</jsf.version>
+  </properties>
+  
+  <dependencies>
+  		<dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-servlet-api</artifactId>
+            <version>${tomcat.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    
+        <dependency>
+            <groupId>com.sun.faces</groupId>
+            <artifactId>jsf-api</artifactId>
+            <version>${jsf.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.sun.faces</groupId>
+            <artifactId>jsf-impl</artifactId>
+            <version>${jsf.version}</version>
+        </dependency>
+    
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.1.0.Final</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <version>1.0.0.Final</version>
+        </dependency>
+        
+        <dependency>
+      		<groupId>org.hibernate</groupId>
+      		<artifactId>hibernate-core</artifactId>
+      		<version>5.3.10.Final</version>
+    	</dependency>
+    
+    	<dependency>  
+    		<groupId>com.oracle</groupId>  
+    		<artifactId>ojdbc7</artifactId>  
+    		<version>12.1.0.2</version>  
+		</dependency>
+  </dependencies>
+  
+  <build>
+    
+
+    <plugins>
+    
+      	<plugin>
+        	<artifactId>maven-compiler-plugin</artifactId>
+        	<version>3.8.1</version>
+        	<configuration>
+          		<source>1.8</source>
+          		<target>1.8</target>
+        	</configuration>
+      	</plugin>
+      	
+      	<plugin>
+        	<artifactId>maven-war-plugin</artifactId>
+        	<version>3.2.3</version>
+        	<configuration>
+          		<warSourceDirectory>WebContent</warSourceDirectory>         		
+        	</configuration>
+      	</plugin>
+      	
+    </plugins>
+  </build>
+  
+  <repositories>
+		<repository>
+			<id>nexus3</id>
+			<url>http://nexus3.internal.draexlmaier.com:8081/repository/hed-development/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>interval:30</updatePolicy>
+			</snapshots>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>draexlmaier.nexus</id>
+			<url>http://nexus3.internal.draexlmaier.com:8081/repository/hed-development/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+  
+  
+</project>

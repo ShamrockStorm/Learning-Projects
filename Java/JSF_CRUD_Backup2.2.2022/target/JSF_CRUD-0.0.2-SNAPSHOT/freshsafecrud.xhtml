@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+    <title>Simple CRUD</title>
+</head>
+    
+<body>
+    <h3>List students</h3>
+    <h:form rendered="#{not empty freshsafeCrudBeanB.list}">
+        <h:dataTable value="#{freshsafeCrudBeanB.list}" var="item">
+            <h:column><f:facet name="header">ID</f:facet>#{item.id}</h:column>
+            <h:column><f:facet name="header">First Name</f:facet>#{item.firstName}</h:column>
+			<h:column><f:facet name="header">Last Name</f:facet>#{item.lastName}</h:column>
+			<h:column><f:facet name="header">eMail</f:facet>#{item.eMail}</h:column>
+            <h:column>
+                <h:commandButton value="edit" action="#{freshsafeCrudBeanB.edit(item)}" />
+            </h:column>
+            <h:column>
+                <h:commandButton value="delete" action="#{freshsafeCrudBeanB.delete(item)}" />
+            </h:column>
+        </h:dataTable>
+    </h:form>
+    
+    <h:panelGroup rendered="#{empty freshsafeCrudBeanB.list}">
+        <p>No students! Please add students.</p>
+    </h:panelGroup>
+    
+    <h:panelGroup rendered="#{!freshsafeCrudBeanB.edit}">
+        <h3>Add student</h3>
+        <h:form>
+            <p>First Name: <h:inputText value="#{freshsafeCrudBeanB.item.firstName}" /></p>
+			<p>Last Name: <h:inputText value="#{freshsafeCrudBeanB.item.lastName}" /></p>
+			<p>eMail: <h:inputText value="#{freshsafeCrudBeanB.item.eMail}" /></p>
+            <p>
+                <h:commandButton value="add" action="#{freshsafeCrudBeanB.add}" />
+                <h:commandButton value="reset" action="#{freshsafeCrudBeanB.resetAdd}" />
+            </p>
+        </h:form>
+    </h:panelGroup>
+    
+    <h:panelGroup rendered="#{freshsafeCrudBeanB.edit}">
+        <h3>Edit student #{freshsafeCrudBeanB.item.id}</h3>
+        <h:form>
+            <p>First Name: <h:inputText value="#{freshsafeCrudBeanB.item.firstName}" /></p>
+			<p>Last Name: <h:inputText value="#{freshsafeCrudBeanB.item.lastName}" /></p>
+			<p>eMail: <h:inputText value="#{freshsafeCrudBeanB.item.eMail}" /></p>
+            <p>
+                <h:commandButton value="save" action="#{freshsafeCrudBeanB.saveEdit}" />
+                <h:commandButton value="cancel" action="#{freshsafeCrudBeanB.cancelEdit}" />
+            </p>
+        </h:form>
+    </h:panelGroup>
+    <p>
+        <a href="#{appUrlStore.baseUrl}">Go back to index</a>
+    </p>
+</body>
+</html>
