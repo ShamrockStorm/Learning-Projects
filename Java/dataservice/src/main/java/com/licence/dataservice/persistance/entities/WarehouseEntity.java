@@ -26,7 +26,7 @@ public class WarehouseEntity {
     @Column(name = "longitude")
     private float longitude;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "warehouseid")
-    List<DeliveryEntity> deliveries = new ArrayList<DeliveryEntity>();
+    //@OneToMany(cascade = CascadeType.ALL)
+    //@JoinColumn(name = "warehouseid")
+    //List<DeliveryEntity> deliveries = new ArrayList<DeliveryEntity>();
 }

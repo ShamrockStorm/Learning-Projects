@@ -32,7 +32,7 @@ public class UserEntity {
     @JoinColumn(name ="loginid")
     private LogInEntity logIn;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "userid")
-    List<PackageEntity> packages = new ArrayList<PackageEntity>();
+    //@OneToMany(cascade = CascadeType.ALL)
+    //@JoinColumn(name = "userid")
+    //List<PackageEntity> packages = new ArrayList<PackageEntity>();
 }

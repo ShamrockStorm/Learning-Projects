@@ -17,7 +17,7 @@ public class DriverEntity {
     @Id
     @Column(name = "driverid")
     private Integer driverId;
-    @Column(name = "driverF=firstname")
+    @Column(name = "driverfirstname")
     private String driverFirstName;
     @Column(name = "driverlastname")
     private String driverLastName;
@@ -26,7 +26,7 @@ public class DriverEntity {
     @JoinColumn(name ="loginid")
     private LogInEntity logIn;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "driverid")
-    List<DeliveryEntity> deliveries = new ArrayList<DeliveryEntity>();
+    //@OneToMany(cascade = CascadeType.ALL)
+    //@JoinColumn(name = "driverid")
+    //List<DeliveryEntity> deliveries = new ArrayList<DeliveryEntity>();
 }

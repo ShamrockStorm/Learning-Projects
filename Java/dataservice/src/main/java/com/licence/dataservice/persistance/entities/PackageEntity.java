@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Setter
 @EqualsAndHashCode
 @Entity
-@Table(name = "tpackage")
+@Table(name = "tpackages")
 public class PackageEntity {
     @Id
     @Column(name = "packageid")
@@ -21,10 +21,10 @@ public class PackageEntity {
     private float dropOffLongitude;
     @Column(name = "dropofflatitude")
     private float dropOffLatitude;
-    @Column(name = "userid")
-    private Integer UserId;
-    @Column(name = "deliveryid")
-    private Integer DeliveryId;
+    //@Column(name = "userid")
+    //private Integer UserId;
+    //@Column(name = "deliveryid")
+    //private Integer DeliveryId;
 
     @ManyToOne
     @JoinColumn (name = "userid")

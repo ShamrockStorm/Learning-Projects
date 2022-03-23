@@ -30,7 +30,7 @@ public class DeliveryEntity {
     @JoinColumn (name = "warehouseid")
     private WarehouseEntity warehouse;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "deliveryid")
-    List<PackageEntity> users = new ArrayList<PackageEntity>();
+    //@OneToMany(cascade = CascadeType.ALL)
+    //@JoinColumn(name = "deliveryid")
+    //List<PackageEntity> users = new ArrayList<PackageEntity>();
 }

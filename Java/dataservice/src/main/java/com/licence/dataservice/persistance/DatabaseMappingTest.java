@@ -2,9 +2,7 @@ package com.licence.dataservice.persistance;
 
 import com.licence.dataservice.model.Warehouse;
 import com.licence.dataservice.persistance.entities.*;
-import com.licence.dataservice.persistance.repositories.DriverRepository;
-import com.licence.dataservice.persistance.repositories.LogInRepository;
-import com.licence.dataservice.persistance.repositories.UserRepository;
+import com.licence.dataservice.persistance.repositories.*;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -12,11 +10,19 @@ public class DatabaseMappingTest {
     private UserRepository userRepository;
     private DriverRepository driverRepository;
     private LogInRepository logInRepository;
+    private PackageRepository packageRepository;
+    private WarehouseRepository warehouseRepository;
+    private DeliveryRepository deliveryRepository;
 
-    public DatabaseMappingTest(UserRepository userRepository, DriverRepository driverRepository, LogInRepository logInRepository) {
+
+    public DatabaseMappingTest(UserRepository userRepository, DriverRepository driverRepository, LogInRepository logInRepository,
+                               PackageRepository packageRepository, WarehouseRepository warehouseRepository, DeliveryRepository deliveryRepository) {
         this.userRepository = userRepository;
         this.driverRepository = driverRepository;
         this.logInRepository = logInRepository;
+        this.packageRepository = packageRepository;
+        this.warehouseRepository = warehouseRepository;
+        this.deliveryRepository = deliveryRepository;
     }
 
     public void persistEntities(){
@@ -50,8 +56,22 @@ public class DatabaseMappingTest {
         delivery2.setLatitude(0);
         delivery2.setLongitude(0);
         delivery2.setDriver(driver2);
+        delivery2.setWarehouse(warehouse2);
 
+        PackageEntity package2 = new PackageEntity();
+        package2.setPackageId(2);
+        package2.setItemName("TestItem");
+        package2.setDropOffLatitude(0);
+        package2.setDropOffLongitude(0);
+        package2.setUser(user2);
+        package2.setDelivery(delivery2);
+
+        warehouse2 = warehouseRepository.save(warehouse2);
         user2 = userRepository.save(user2);
+        driver2 = driverRepository.save(driver2);
+        delivery2 = deliveryRepository.save(delivery2);
+        package2 = packageRepository.save(package2);
+        //user2 = userRepository.save(user2);
     }
 
 
