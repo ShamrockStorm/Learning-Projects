@@ -11,6 +11,8 @@ public class Delivery {
     private float latitude;
     private Integer numberOfPackages;
     private String progress;
-    private Driver driver;
-    private Warehouse warehouse;
+    //private Driver driver;
+    private Integer driverId;
+    //private Warehouse warehouse;
+    private Integer warehouseId;
 }

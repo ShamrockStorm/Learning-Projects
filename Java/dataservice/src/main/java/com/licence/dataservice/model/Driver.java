@@ -9,5 +9,6 @@ public class Driver {
     private Integer driverId;
     private String driverFirstName;
     private String driverLastName;
-    private LogIn logIn;
+    private Integer logInId;
+    //private LogIn logIn;
 }
