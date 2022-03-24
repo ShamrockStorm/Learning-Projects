@@ -14,8 +14,6 @@ import javax.persistence.*;
 public class LogInEntity {
     @Id
     @Column (name = "loginid")
-    //@OneToOne(mappedBy = "driver")
-    //@JoinColumn(name ="logInId")
     private Integer logInId;
 
     @Column (name = "username")

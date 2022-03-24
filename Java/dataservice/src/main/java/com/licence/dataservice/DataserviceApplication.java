@@ -10,8 +10,8 @@ public class DataserviceApplication {
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(DataserviceApplication.class, args);
-		DatabaseMappingTest test = context.getBean(DatabaseMappingTest.class);
-		test.persistEntities();
+		//DatabaseMappingTest test = context.getBean(DatabaseMappingTest.class);
+		//test.persistEntities();
 	}
 
 }
