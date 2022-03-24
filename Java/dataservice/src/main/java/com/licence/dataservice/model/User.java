@@ -12,4 +12,6 @@ public class User {
     private String userAdress;
     private float latitude;
     private float longitude;
+    private Integer deliveryRange;
+    private LogIn logIn;
 }

@@ -9,5 +9,5 @@ public class Driver {
     private Integer driverId;
     private String driverFirstName;
     private String driverLastName;
-    private Integer logInId;
+    private LogIn logIn;
 }

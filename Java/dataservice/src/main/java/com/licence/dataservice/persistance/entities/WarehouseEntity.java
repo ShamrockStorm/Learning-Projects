@@ -21,6 +21,8 @@ public class WarehouseEntity {
     private String warehouseName;
     @Column(name = "warehouseadress")
     private String warehouseAdress;
+    @Column(name="pickuprange")
+    private Integer pickUpRange;
     @Column(name = "latitude")
     private float latitude;
     @Column(name = "longitude")

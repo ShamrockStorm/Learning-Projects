@@ -10,6 +10,8 @@ public class Package {
     private String itemName;
     private float dropOffLongitude;
     private float dropOffLatitude;
-    private Integer ClientId;
-    private Integer DeliveryId;
+    private Integer dropOffRange;
+    private String progress;
+    private User user;
+    private Delivery delivery;
 }

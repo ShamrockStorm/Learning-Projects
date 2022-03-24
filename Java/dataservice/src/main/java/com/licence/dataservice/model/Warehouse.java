@@ -10,6 +10,7 @@ public class Warehouse {
     private Integer warehouseId;
     private String warehouseName;
     private String warehouseAdress;
+    private Integer pickUpRange;
     private float latitude;
     private float longitude;
 }

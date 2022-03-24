@@ -27,6 +27,8 @@ public class UserEntity {
     private float latitude;
     @Column(name = "longitude")
     private float longitude;
+    @Column(name="deliveryrange")
+    private Integer deliveryRange;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name ="loginid")

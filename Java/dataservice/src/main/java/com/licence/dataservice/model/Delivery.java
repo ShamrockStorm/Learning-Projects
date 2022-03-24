@@ -9,6 +9,8 @@ public class Delivery {
     private Integer deliveryId;
     private float longitude;
     private float latitude;
-    private Integer driverId;
-    private Integer warehouseID;
+    private Integer numberOfPackages;
+    private String progress;
+    private Driver driver;
+    private Warehouse warehouse;
 }

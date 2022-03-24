@@ -21,10 +21,10 @@ public class PackageEntity {
     private float dropOffLongitude;
     @Column(name = "dropofflatitude")
     private float dropOffLatitude;
-    //@Column(name = "userid")
-    //private Integer UserId;
-    //@Column(name = "deliveryid")
-    //private Integer DeliveryId;
+    @Column(name="dropoffrange")
+    private Integer dropOffRange;
+    @Column(name="progress")
+    private String progress;
 
     @ManyToOne
     @JoinColumn (name = "userid")

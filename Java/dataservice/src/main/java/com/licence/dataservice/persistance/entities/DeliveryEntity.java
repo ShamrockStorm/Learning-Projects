@@ -21,6 +21,10 @@ public class DeliveryEntity {
     private float longitude;
     @Column(name = "latitude")
     private float latitude;
+    @Column(name="numberofpackages")
+    private Integer numberOfPackages;
+    @Column(name="progress")
+    private String progress;
 
     @ManyToOne
     @JoinColumn(name = "driverid")
