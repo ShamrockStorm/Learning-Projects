@@ -5,13 +5,15 @@ import lombok.Data;
 
 @Data
 @Builder
-public class Package {
+public class PackageModel {
     private Integer packageId;
     private String itemName;
     private float dropOffLongitude;
     private float dropOffLatitude;
     private Integer dropOffRange;
     private String progress;
-    private User user;
-    private Delivery delivery;
+    private Integer userId;
+    private Integer deliveryId;
+    //private User user;
+    //private Delivery delivery;
 }
