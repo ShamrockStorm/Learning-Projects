@@ -2,9 +2,11 @@ server:
   port: 8081
 spring:
   datasource:
-    url: jdbc:sqlserver://127.0.0.1:1433;databaseName=dbLicence;encrypt=true;trustServerCertificate=true;
-    username: AndroidApp
-    password: AndroidTest
-  jpa.properties.hibernate.dialect: org.hibernate.dialect.SQLServer2012Dialect
+    url: jdbc:sqlserver://geolocationdelivery.database.windows.net:1433;database=dbLicence;encrypt=true;trustServerCertificate=true;
+    username: licenceAPI
+    password: Apr1lF0o1s
+  jpa.properties.hibernate:
+    dialect: org.hibernate.dialect.SQLServer2012Dialect
+    default_schema: sLicence
 
 
