@@ -1,6 +1,7 @@
 package com.licence.dataservice.services;
 
 import com.licence.dataservice.model.PackageModel;
+import com.licence.dataservice.persistance.entities.DeliveryEntity;
 import com.licence.dataservice.persistance.entities.PackageEntity;
 import com.licence.dataservice.persistance.repositories.DeliveryRepository;
 import com.licence.dataservice.persistance.repositories.PackageRepository;
@@ -19,21 +20,23 @@ public class PackageService {
     PackageRepository packageRepository;
     UserRepository userRepository;
     DeliveryRepository deliveryRepository;
-    public PackageService(PackageRepository packageRepository){
+    public PackageService(PackageRepository packageRepository, UserRepository userRepository, DeliveryRepository deliveryRepository){
         this.packageRepository = packageRepository;
-        this.userRepository = getUserRepository();
-        this.deliveryRepository = getDeliveryRepository();
+        this.userRepository = userRepository;
+        this.deliveryRepository = deliveryRepository;
     }
 
     public PackageModel insertPackage (PackageModel pack){
         PackageEntity packageEntity = new PackageEntity();
-        packageEntity.setPackageId(pack.getPackageId());
+        //packageEntity.setPackageId(pack.getPackageId());
         packageEntity.setProgress(pack.getProgress());
         packageEntity.setDropOffLatitude(pack.getDropOffLatitude());
         packageEntity.setDropOffLongitude(pack.getDropOffLongitude());
         packageEntity.setDropOffRange(pack.getDropOffRange());
         packageEntity.setItemName(pack.getItemName());
-        packageEntity.setDelivery(deliveryRepository.getById(pack.getPackageId()));
+        // the problem is here
+        //DeliveryEntity deliveryEntity = deliveryRepository.getById(pack.getDeliveryId());
+        packageEntity.setDelivery(deliveryRepository.getById(pack.getDeliveryId()));
         packageEntity.setUser(userRepository.getById(pack.getUserId()));
         packageRepository.save(packageEntity);
         return pack;

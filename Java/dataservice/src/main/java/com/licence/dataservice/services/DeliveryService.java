@@ -58,7 +58,7 @@ public class DeliveryService {
 
     public Delivery insertDelivery(Delivery delivery){
         DeliveryEntity deliveryEntity = new DeliveryEntity();
-        deliveryEntity.setDeliveryId(delivery.getDeliveryId());
+        //deliveryEntity.setDeliveryId(delivery.getDeliveryId());
         deliveryEntity.setLatitude(delivery.getLatitude());
         deliveryEntity.setLongitude(delivery.getLongitude());
         deliveryEntity.setNumberOfPackages(delivery.getNumberOfPackages());

@@ -15,7 +15,8 @@ import java.util.List;
 @Table(name = "twarehouse")
 public class WarehouseEntity {
     @Id
-    @Column(name = "warehouseid")
+    @GeneratedValue(strategy = javax.persistence.GenerationType.IDENTITY)
+    @Column(name = "warehouseid", unique = true, nullable = false)
     private Integer warehouseId;
     @Column(name = "warehousename")
     private String warehouseName;

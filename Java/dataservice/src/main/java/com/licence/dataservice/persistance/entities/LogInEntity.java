@@ -13,7 +13,8 @@ import javax.persistence.*;
 @Table(name = "tlogin")
 public class LogInEntity {
     @Id
-    @Column (name = "loginid")
+    @GeneratedValue(strategy = javax.persistence.GenerationType.IDENTITY)
+    @Column (name = "loginid", unique = true, nullable = false)
     private Integer logInId;
 
     @Column (name = "username")

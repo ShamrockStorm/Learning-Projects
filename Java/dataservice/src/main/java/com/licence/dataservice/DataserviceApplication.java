@@ -15,8 +15,8 @@ public class DataserviceApplication {
 		ConfigurableApplicationContext context = SpringApplication.run(DataserviceApplication.class, args);
 		//DatabaseMappingTest test = context.getBean(DatabaseMappingTest.class);
 		//test.persistEntities();
-		DeliveryRouteCalculator drc = new DeliveryRouteCalculator();
-		drc.GetDeliveryRoute();
+		//DeliveryRouteCalculator drc = new DeliveryRouteCalculator();
+		//drc.GetDeliveryRoute();
 	}
 
 }

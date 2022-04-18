@@ -15,7 +15,8 @@ import java.util.List;
 @Table(name = "tdeliveries")
 public class DeliveryEntity {
     @Id
-    @Column(name = "deliveryid")
+    @GeneratedValue(strategy = javax.persistence.GenerationType.IDENTITY)
+    @Column(name = "deliveryid", unique = true, nullable = false)
     private Integer deliveryId;
     @Column(name = "longitude")
     private float longitude;

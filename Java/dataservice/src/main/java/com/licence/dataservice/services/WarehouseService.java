@@ -20,7 +20,7 @@ public class WarehouseService {
     }
     public Warehouse insertWarehouse(Warehouse warehouse){
         WarehouseEntity warehouseEntity = new WarehouseEntity();
-        warehouseEntity.setWarehouseId(warehouse.getWarehouseId());
+        //warehouseEntity.setWarehouseId(warehouse.getWarehouseId());
         warehouseEntity.setWarehouseAdress(warehouse.getWarehouseAdress());
         warehouseEntity.setWarehouseName(warehouse.getWarehouseName());
         warehouseEntity.setLongitude(warehouse.getLongitude());

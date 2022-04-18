@@ -15,7 +15,8 @@ import java.util.List;
 @Table(name = "tdrivers")
 public class DriverEntity {
     @Id
-    @Column(name = "driverid")
+    @GeneratedValue(strategy = javax.persistence.GenerationType.IDENTITY)
+    @Column(name = "driverid", unique = true, nullable = false)
     private Integer driverId;
     @Column(name = "driverfirstname")
     private String driverFirstName;

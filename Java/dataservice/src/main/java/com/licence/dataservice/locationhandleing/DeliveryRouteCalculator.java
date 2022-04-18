@@ -37,17 +37,15 @@ public class DeliveryRouteCalculator {
             }
         return routes;
     }
-    public void GetDeliveryRoute() throws IOException {
-        List<Route> deliveryRoute = new ArrayList<>();
-        List<Route> routes = GetTestRoutes();
+    public int[] Kruskal(List<Route> routes){
         routes.sort(Route::compareTo);
         int noDestinations = locations.size();
         double cost = 0.0;
         int[] reached = new int[noDestinations];
-        double[] minCost = new double[noDestinations-1];
-        int[] root = new int[noDestinations-1];
+        double[] minCost = new double[noDestinations];
+        int[] root = new int[noDestinations];
         reached[0] = 1;
-        for(int i = 1; i<noDestinations-1;i++){
+        for(int i = 1; i<noDestinations;i++){
             reached[i] = 0;
             for (Route r : routes) {
                 if(r.getOrigin().equals(locations.get(0)) && r.getDestination().equals(locations.get(i)))
@@ -57,9 +55,9 @@ public class DeliveryRouteCalculator {
         }
         int y=0;
         int x=0;
-        for(int l = 0; l < noDestinations-1; l++){
+        for(int l = 0; l < noDestinations; l++){
             double min = 500.0;
-            for(int i = 1; i< noDestinations-1;i++){
+            for(int i = 1; i< noDestinations;i++){
                 if(reached[i] == 0 && minCost[i] < min){
                     min = minCost[i];
                     y = i;
@@ -71,11 +69,11 @@ public class DeliveryRouteCalculator {
                 if(r.getOrigin().equals(locations.get(x)) && r.getDestination().equals(locations.get(y)))
                     cost = cost + r.getLength();
             }
-            for(int i = 1; i< noDestinations-1;i++){
+            for(int i = 1; i< noDestinations;i++){
                 double curentCost = 0.0;
                 for (Route r : routes) {
                     if((r.getOrigin().equals(locations.get(i)) && r.getDestination().equals(locations.get(y)))
-                        || (r.getOrigin().equals(locations.get(y)) && r.getDestination().equals(locations.get(i)))) {
+                            || (r.getOrigin().equals(locations.get(y)) && r.getDestination().equals(locations.get(i)))) {
                         curentCost = r.getLength();
                     }
 
@@ -86,14 +84,52 @@ public class DeliveryRouteCalculator {
                 }
             }
         }
+        /*
         for (int i : root){
             System.out.println(i);
         }
+
+         */
+        return root;
+    }
+    public List<Route> GetDeliveryRoute() throws IOException {
+        List<Route> deliveryRoute = new ArrayList<>();
+        List<Route> routes = GetTestRoutes();
+        Location currentLocation = locations.get(0);
+        int [] visited = new int[locations.size()];
+        int locationsVisited = 1;
+        while(locationsVisited != locations.size()){
+            double minLength = 1000.0;
+            Route minRoute = new Route();
+            for(Route r : routes){
+                if(r.getOrigin() == currentLocation || r.getDestination() == currentLocation){
+                    if(r.getLength() < minLength){
+                        if(visited[locations.indexOf(r.getOrigin())] == 0 || visited[locations.indexOf(r.getDestination())] == 0) {
+                            minLength = r.getLength();
+                            minRoute = r;
+                        }
+                    }
+                }
+            }
+            deliveryRoute.add(minRoute);
+            /*
+            if(minRoute.getOrigin() == currentLocation) currentLocation = minRoute.getDestination();
+            else{ currentLocation = minRoute.getOrigin();
+            */
+            if(minRoute.getDestination() == currentLocation){
+                Location temp = minRoute.getDestination();
+                minRoute.setDestination(minRoute.getOrigin());
+                minRoute.setOrigin(temp);
+            }
+            currentLocation = minRoute.getDestination();
+            locationsVisited ++;
+            visited[locations.indexOf(currentLocation)] = 1;
+        }
         /*
-        for (Route r : routes) {
+        for(Route r : deliveryRoute){
             System.out.println(r.toString());
         }
          */
-        //return deliveryRoute;
+        return deliveryRoute;
     }
 }

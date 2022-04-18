@@ -13,7 +13,8 @@ import javax.persistence.*;
 @Table(name = "tpackages")
 public class PackageEntity {
     @Id
-    @Column(name = "packageid")
+    @GeneratedValue(strategy = javax.persistence.GenerationType.IDENTITY)
+    @Column(name = "packageid", unique = true, nullable = false)
     private Integer packageId;
     @Column(name = "itemname")
     private String itemName;
