@@ -3,9 +3,8 @@ package com.licence.dataservice.services;
 import com.licence.dataservice.model.PackageModel;
 import com.licence.dataservice.persistance.entities.DeliveryEntity;
 import com.licence.dataservice.persistance.entities.PackageEntity;
-import com.licence.dataservice.persistance.repositories.DeliveryRepository;
-import com.licence.dataservice.persistance.repositories.PackageRepository;
-import com.licence.dataservice.persistance.repositories.UserRepository;
+import com.licence.dataservice.persistance.entities.WarehouseEntity;
+import com.licence.dataservice.persistance.repositories.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Service;
@@ -20,10 +19,15 @@ public class PackageService {
     PackageRepository packageRepository;
     UserRepository userRepository;
     DeliveryRepository deliveryRepository;
-    public PackageService(PackageRepository packageRepository, UserRepository userRepository, DeliveryRepository deliveryRepository){
+    WarehouseRepository warehouseRepository;
+    DriverRepository driverRepository;
+    public PackageService(PackageRepository packageRepository, UserRepository userRepository, DeliveryRepository deliveryRepository,
+                          WarehouseRepository warehouseRepository, DriverRepository driverRepository){
         this.packageRepository = packageRepository;
         this.userRepository = userRepository;
         this.deliveryRepository = deliveryRepository;
+        this.warehouseRepository = warehouseRepository;
+        this.driverRepository = driverRepository;
     }
 
     public PackageModel insertPackage (PackageModel pack){
@@ -34,10 +38,36 @@ public class PackageService {
         packageEntity.setDropOffLongitude(pack.getDropOffLongitude());
         packageEntity.setDropOffRange(pack.getDropOffRange());
         packageEntity.setItemName(pack.getItemName());
-        // the problem is here
-        //DeliveryEntity deliveryEntity = deliveryRepository.getById(pack.getDeliveryId());
+        int deliveryId = (int)deliveryRepository.count();
+        DeliveryEntity deliveryEntity;
+        while(deliveryId > 0 && !deliveryRepository.getById(deliveryId).getProgress().equals("Building")) {
+            deliveryId --;
+        }
+        if(deliveryId == 0) {
+            deliveryEntity = new DeliveryEntity();
+            Integer wareId = (int)Math.round(Math.random()*warehouseRepository.count());
+            Integer driverId = (int)Math.round(Math.random()*driverRepository.count());
+            WarehouseEntity warehouseEntity = warehouseRepository.getById(wareId);
+            deliveryEntity.setWarehouse(warehouseEntity);
+            deliveryEntity.setDriver(driverRepository.getById(driverId));
+            deliveryEntity.setNumberOfPackages(0);
+            deliveryEntity.setProgress("Building");
+            deliveryEntity.setLongitude(warehouseEntity.getLongitude());
+            deliveryEntity.setLatitude(warehouseEntity.getLatitude());
+        }
+        else{
+            deliveryEntity = deliveryRepository.getById(deliveryId);
+        }
+        int noPack = deliveryEntity.getNumberOfPackages();
+        deliveryEntity.setNumberOfPackages(noPack+1);
+        noPack++;
+        if(noPack >= 10) deliveryEntity.setProgress("Warehouse");
+        deliveryRepository.save(deliveryEntity);
+        System.out.println(deliveryEntity.toString());
+        packageEntity.setDelivery(deliveryEntity);
         packageEntity.setDelivery(deliveryRepository.getById(pack.getDeliveryId()));
         packageEntity.setUser(userRepository.getById(pack.getUserId()));
+        System.out.println(packageEntity.toString());
         packageRepository.save(packageEntity);
         return pack;
     }
